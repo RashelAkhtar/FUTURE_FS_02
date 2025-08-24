@@ -1,0 +1,148 @@
+/* Container */
+.admin-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #111;
+}
+
+/* Title */
+.admin-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: #111;
+  border-bottom: 2px solid #111;
+  padding-bottom: 10px;
+}
+
+/* Form */
+.product-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.form-input,
+select {
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafafa;
+  color: #111;
+  transition: all 0.2s;
+}
+
+.form-input:focus,
+select:focus {
+  outline: none;
+  border-color: #111;
+  background: #fff;
+}
+
+.form-button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-button.primary {
+  background: #111;
+  color: #fff;
+}
+
+.form-button.primary:hover {
+  background: #333;
+}
+
+.form-button.secondary {
+  background: #eee;
+  color: #111;
+}
+
+.form-button.secondary:hover {
+  background: #ddd;
+}
+
+/* Table */
+.products-table-container {
+  overflow-x: auto;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.products-table th {
+  background: #111;
+  color: #fff;
+}
+
+.products-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.products-table tr:hover {
+  background: #eee;
+}
+
+/* Image */
+.image-cell img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Action Buttons */
+.action-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-button.edit {
+  background: #111;
+  color: #fff;
+}
+
+.action-button.edit:hover {
+  background: #333;
+}
+
+.action-button.delete {
+  background: #e63946;
+  color: #fff;
+}
+
+.action-button.delete:hover {
+  background: #c71c30;
+}
+
+/* No products row */
+.no-products {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #555;
+}
