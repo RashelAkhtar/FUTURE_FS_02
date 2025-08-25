@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import pool from "./db.js";
 import { v4 as uuidv4 } from "uuid";
 import cors from "cors";
@@ -145,11 +146,16 @@ app.post("/products", async (req, res) => {
   if (!name || !price || !image || !category) {
     return res.status(400).json({ message: "All fields required" });
   }
-  const result = await pool.query(
-    "INSERT INTO products (name, price, image, category) VALUES ($1, $2, $3, $4) RETURNING *",
-    [name, parseFloat(price), image, category]
-  );
-  res.json({ message: "Product added", product: result.rows[0] });
+  try {
+    const result = await pool.query(
+      "INSERT INTO products (name, price, image, category) VALUES ($1, $2, $3, $4) RETURNING *",
+      [name, parseFloat(price), image, category]
+    );
+    res.json({ message: "Product added", product: result.rows[0] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error adding product" });
+  }
 });
 
 // Update a product
