@@ -99,7 +99,7 @@
     font-size: 1.2rem;
   }
 
-  .nav-link {
-    font-size: 0.9rem;
+  .nav-link span {
+    display: none;
   }
 }
