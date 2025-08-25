@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const PORT = process.env.WEB_PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Allow requests from frontend
