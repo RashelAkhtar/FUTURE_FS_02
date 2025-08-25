@@ -7,13 +7,15 @@ function CategoryPage({ categoryName }) {
   const [error, setError] = useState(null);
   const [cartMessage, setCartMessage] = useState("");
 
+  const API_BASE = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchCategoryProducts = async () => {
       try {
         setLoading(true);
         setError(null);
         const response = await fetch(
-          `http://localhost:3000/products/category/${categoryName}`
+          `${API_BASE}/products/category/${categoryName}`
         );
         if (!response.ok) throw new Error("Failed to fetch products");
         const data = await response.json();
@@ -35,13 +37,13 @@ function CategoryPage({ categoryName }) {
 
       // Create new cart if none exists
       if (!cartID) {
-        const newCartRes = await fetch(`http://localhost:3000/cart/new`);
+        const newCartRes = await fetch(`${API_BASE}/cart/new`);
         const newCartData = await newCartRes.json();
         cartID = newCartData.cart_id;
         localStorage.setItem("cartID", cartID);
       }
 
-      const res = await fetch("http://localhost:3000/cart", {
+      const res = await fetch(`${API_BASE}/cart`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
